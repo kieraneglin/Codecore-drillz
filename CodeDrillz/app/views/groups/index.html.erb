@@ -1,0 +1,12 @@
+<%= link_to "Add Group", new_group_path %>
+
+<h1>Drills Group</h1>
+
+<% @groups.each do |group| %>
+<%= group.name%>
+<%= link_to "View", group_path(group)%>
+<%= link_to "Edit", edit_group_path(group) %>
+<%= link_to "Delete", group_path(group),
+                                  {method: :delete, data: {confirm: "Are you sure ?"}%>
+<hr>
+<% end%>

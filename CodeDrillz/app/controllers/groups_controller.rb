@@ -4,6 +4,9 @@ class GroupsController < ApplicationController
  #  before_action :authenticate_user, except: [:index, :show]
  #  before_action :authorize, only: [:edit, :update, :destroy]
 
+ 	def index 
+ 		@groups = Group.all
+ 	end
   def new
     # authenticate_user 
     @group = Group.new
