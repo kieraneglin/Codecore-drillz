@@ -18,6 +18,8 @@ gem 'friendly_id'
 gem 'simple_form'
 gem 'delayed_job_active_record'
 gem "delayed_job_web"
+gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'devise'
 
 
 group :development, :test do
