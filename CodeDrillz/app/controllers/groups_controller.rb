@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    redirect_to groupss_path, alert: "Access Denied"
+    # redirect_to groups_path, alert: "Access Denied"
   end
 
   def update

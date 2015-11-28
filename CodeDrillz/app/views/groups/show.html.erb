@@ -1,0 +1,10 @@
+<h1>drill group <%= @group.name%></h1>
+
+<%= link_to "Edit", edit_group_path(@group),
+                                  class: "" %>
+
+<%= link_to "Delete", group_path(@group),
+                                  {method: :delete, data: {confirm: "Are you sure ?"},
+                                  class: ""} %>
+
+<p><%= @group.description%></p>
