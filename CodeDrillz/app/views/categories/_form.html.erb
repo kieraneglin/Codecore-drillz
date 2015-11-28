@@ -1,0 +1,16 @@
+<%# if !@category.errors.empty? %>
+    <!-- <div class="red-sm">Error (s) :
+      <%#= @category.errors.full_messages.join(", ") %> !!
+    </div> -->
+<%# end %>
+
+  <%= form_for @category do |f| %>
+    <div class="form-group">
+      <%= f.label :title, class: "control-label text-right" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "title" %>
+    </div>
+    <div class="form-group">
+        <%= f.submit(class: "btn btn-primary") %>
+        <%= link_to 'Cancel', categories_path, class:"btn btn-primary" %>
+    </div>
+  <% end %>
