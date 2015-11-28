@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
       @category ||= Category.find params[:id]
     end
     def category_params
-      params.require(:category).permit([:title, :body, {tag_ids: []}])
+      params.require(:category).permit([:title])
     end
   # ----------------------------------------------------------------------------
 
