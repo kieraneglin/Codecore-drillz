@@ -32,8 +32,8 @@
     <%= f.text_field :points%>
   </div> 
   <div>
-    <%= f.label :categories%>
-    <%= f.text_field :category_id %>
+    <%= f.label :category_id%>
+    <%= f.collection_check_boxes :category_ids, Category.order(:title), :id, :title    %>
   </div>
   <div>
     <%= f.submit "Save" %>

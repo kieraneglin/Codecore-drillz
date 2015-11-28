@@ -35,7 +35,7 @@
   </div> 
   <div>
     <%= f.label :categories%>
-    <%= f.text_field :category_id %>
+    <%= f.collection_check_boxes :category_id, Category.order(:title), :id, :title    %>
   </div>
   <div>
     <%= f.submit "Save" %>
