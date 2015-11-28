@@ -16,7 +16,7 @@
       <% @category.each do |cat| %>
       <% num += 1 %>
       <tr><td><%= num %></td>
-          <td><%= link_to cat.title, category_path(cat) %></td>
+          <td><%= cat.title %></td>
           <td><%= link_to "edit", edit_category_path(cat), class: "glyphicon glyphicon-edit" %>
               <%= link_to "delete", category_path(cat), class: "glyphicon glyphicon-trash",
                           method: :delete,
