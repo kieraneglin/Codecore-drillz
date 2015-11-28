@@ -1389,7 +1389,7 @@ a.bg-primary:focus {
 }
 a.bg-success:hover,
 a.bg-success:focus {
-  background-color: #128f76;
+  background-color: #d9230f;
 }
 .bg-info {
   background-color: #3498db;
@@ -2379,7 +2379,7 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.success:hover > td,
 .table-hover > tbody > tr:hover > .success,
 .table-hover > tbody > tr.success:hover > th {
-  background-color: #15a589;
+  background-color: #d9230f;
 }
 .table > thead > tr > td.info,
 .table > tbody > tr > td.info,
@@ -3027,6 +3027,29 @@ select[multiple].input-lg {
   -ms-user-select: none;
   user-select: none;
 }
+
+.btn2 {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  padding: 10px 15px;
+  font-size: 15px;
+  line-height: 1.42857143;
+  border-radius: 100px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
@@ -3205,19 +3228,19 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success:focus,
 .btn-success.focus {
   color: #ffffff;
-  background-color: #128f76;
+  background-color: #d9230f;
   border-color: #0a4b3e;
 }
 .btn-success:hover {
   color: #ffffff;
-  background-color: #128f76;
+  background-color: #d9230f;
   border-color: #11866f;
 }
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: #128f76;
+  background-color: #d9230f;
   border-color: #11866f;
 }
 .btn-success:active:hover,
@@ -4644,7 +4667,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffffff;
-  background-color: #15a589;
+  background-color: #d9230f;
 }
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
@@ -4653,11 +4676,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #128f76;
+  border-color: #d9230f;
 }
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-  background-color: #128f76;
+  background-color: #d9230f;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffffff;
@@ -4669,7 +4692,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: #15a589;
+  background-color: #d9230f;
   color: #ffffff;
 }
 @media (max-width: 767px) {
@@ -4691,7 +4714,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ffffff;
-    background-color: #15a589;
+    background-color: #d9230f;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -4915,7 +4938,7 @@ a.label:focus {
 }
 .label-success[href]:hover,
 .label-success[href]:focus {
-  background-color: #128f76;
+  background-color: #d9230f;
 }
 .label-info {
   background-color: #3498db;
@@ -5090,7 +5113,7 @@ a.thumbnail.active {
   color: #ffffff;
 }
 .alert-success hr {
-  border-top-color: #15a589;
+  border-top-color: #d9230f;
 }
 .alert-success .alert-link {
   color: #e6e6e6;
@@ -5369,7 +5392,7 @@ button.list-group-item-success:hover,
 a.list-group-item-success:focus,
 button.list-group-item-success:focus {
   color: #ffffff;
-  background-color: #15a589;
+  background-color: #d9230f;
 }
 a.list-group-item-success.active,
 button.list-group-item-success.active,
@@ -7020,7 +7043,7 @@ a.list-group-item-success.active {
 }
 a.list-group-item-success.active:hover,
 a.list-group-item-success.active:focus {
-  background-color: #15a589;
+  background-color: #d9230f;
 }
 a.list-group-item-warning.active {
   background-color: #f39c12;
