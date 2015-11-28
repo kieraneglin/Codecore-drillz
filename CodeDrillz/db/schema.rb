@@ -11,16 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128224020) do
+ActiveRecord::Schema.define(version: 20151128071558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "badges", force: :cascade do |t|
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -37,32 +31,11 @@ ActiveRecord::Schema.define(version: 20151128224020) do
 
   add_index "drills", ["group_id"], name: "index_drills_on_group_id", using: :btree
 
-  create_table "earned_badges", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "badge_id"
-    t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "earned_badges", ["badge_id"], name: "index_earned_badges_on_badge_id", using: :btree
-  add_index "earned_badges", ["group_id"], name: "index_earned_badges_on_group_id", using: :btree
-  add_index "earned_badges", ["user_id"], name: "index_earned_badges_on_user_id", using: :btree
-
-  create_table "group_badges", force: :cascade do |t|
-    t.integer  "group_id"
-    t.integer  "badge_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "group_badges", ["badge_id"], name: "index_group_badges_on_badge_id", using: :btree
-  add_index "group_badges", ["group_id"], name: "index_group_badges_on_group_id", using: :btree
-
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "level"
+    t.integer  "badges"
     t.integer  "points"
     t.integer  "category_id"
     t.integer  "user_id"
@@ -103,11 +76,6 @@ ActiveRecord::Schema.define(version: 20151128224020) do
   end
 
   add_foreign_key "drills", "groups"
-  add_foreign_key "earned_badges", "badges"
-  add_foreign_key "earned_badges", "groups"
-  add_foreign_key "earned_badges", "users"
-  add_foreign_key "group_badges", "badges"
-  add_foreign_key "group_badges", "groups"
   add_foreign_key "groups", "categories"
   add_foreign_key "groups", "users"
   add_foreign_key "points", "users"
