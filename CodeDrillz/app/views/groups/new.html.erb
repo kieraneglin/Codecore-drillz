@@ -1,41 +1,53 @@
 <%= @group.errors.full_messages.join(", ") %>
 
 
-<%= form_for @group do |f|  %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :description%>
-    <%= f.text_area :description%>
-  </div>
-  <div>
-    <%= f.radio_button("level", "1") %>
-    <%= f.label :level, "Beginner", :value => "1" %>
-  </div>
-  <div>
-    <%= f.radio_button("level", "2") %>
-    <%= f.label :level, "Intermediate", :value => "2" %>
-  </div>
-  <div>
-    <%= f.radio_button("level", "3") %>
-    <%= f.label :level, "Advanced", :value => "3" %>
-  </div>
-  <!-- Using dummy for now since we are not sure about badges -->
-  <div> 
-    <%= f.label :level, "Badges", :value => "1" %>
-    <%= f.radio_button("badges", "1") %>
-  </div>
-  <div>
-    <%= f.label :points%>
-    <%= f.text_field :points%>
-  </div> 
-  <div>
-    <%= f.label :categories%>
-    <%= f.text_field :category_id %>
-  </div>
-  <div>
-    <%= f.submit "Save" %>
-  </div>
-<% end %>
+<form class="form-horizontal">
+  <fieldset>
+
+    <div class="form-group">
+    <legend>Create a new Group</legend>
+    </div>
+
+  <!--  form  -->
+    <%= form_for @group do |f|  %>
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description%>
+        <%= f.text_area :description, class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.radio_button("level", "1") %>
+        <%= f.label :level, "Beginner", :value => "1" %>
+
+        <%= f.radio_button("level", "2") %>
+        <%= f.label :level, "Intermediate", :value => "2" %>
+
+        <%= f.radio_button("level", "3") %>
+        <%= f.label :level, "Advanced", :value => "3" %>
+
+      </div>
+
+      <!-- Using dummy for now since we are not sure about badges -->
+      <div class="form-group">
+        <%= f.radio_button("badges", "1") %>
+        <%= f.label :level, "Badges", :value => "1" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :points%>
+        <%= f.text_field :points, class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :categories%>
+        <%= f.text_field :category_id, class: "form-control" %>
+      </div>
+      <div class="form-group text-right">
+        <%= f.submit "Save", class: "btn btn-danger" %>
+      </div>
+    <% end %>
+
+  </fieldset>
+</form>
