@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "categories#index"
+
+  resources :groups
   resources :categories
+  
 
 end
