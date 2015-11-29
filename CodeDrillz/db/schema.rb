@@ -10,12 +10,11 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 20151129023301) do
-
+​
+ActiveRecord::Schema.define(version: 20151129013246) do
+​
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
     t.text     "body"
@@ -26,11 +25,9 @@ ActiveRecord::Schema.define(version: 20151129023301) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
-
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -45,41 +42,33 @@ ActiveRecord::Schema.define(version: 20151129023301) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
-
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
-
   create_table "badges", force: :cascade do |t|
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   create_table "categorizings", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "group_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
   add_index "categorizings", ["category_id"], name: "index_categorizings_on_category_id", using: :btree
   add_index "categorizings", ["group_id"], name: "index_categorizings_on_group_id", using: :btree
-
   create_table "drills", force: :cascade do |t|
     t.text     "description"
     t.integer  "group_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
   add_index "drills", ["group_id"], name: "index_drills_on_group_id", using: :btree
-
   create_table "earned_badges", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "badge_id"
@@ -87,44 +76,34 @@ ActiveRecord::Schema.define(version: 20151129023301) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   add_index "earned_badges", ["badge_id"], name: "index_earned_badges_on_badge_id", using: :btree
   add_index "earned_badges", ["group_id"], name: "index_earned_badges_on_group_id", using: :btree
   add_index "earned_badges", ["user_id"], name: "index_earned_badges_on_user_id", using: :btree
-
   create_table "group_badges", force: :cascade do |t|
     t.integer  "group_id"
     t.integer  "badge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   add_index "group_badges", ["badge_id"], name: "index_group_badges_on_badge_id", using: :btree
   add_index "group_badges", ["group_id"], name: "index_group_badges_on_group_id", using: :btree
-
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "level"
     t.integer  "points"
-    t.integer  "category_id"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  add_index "groups", ["category_id"], name: "index_groups_on_category_id", using: :btree
   add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
-
   create_table "points", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "point"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
-
   create_table "solutions", force: :cascade do |t|
     t.integer  "drill_id"
     t.text     "correct_answer"
@@ -132,9 +111,7 @@ ActiveRecord::Schema.define(version: 20151129023301) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
-
   add_index "solutions", ["drill_id"], name: "index_solutions_on_drill_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -154,10 +131,8 @@ ActiveRecord::Schema.define(version: 20151129023301) do
     t.inet     "last_sign_in_ip"
     t.boolean  "approved"
   end
-
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
   add_foreign_key "categorizings", "categories"
   add_foreign_key "categorizings", "groups"
   add_foreign_key "drills", "groups"
@@ -166,8 +141,7 @@ ActiveRecord::Schema.define(version: 20151129023301) do
   add_foreign_key "earned_badges", "users"
   add_foreign_key "group_badges", "badges"
   add_foreign_key "group_badges", "groups"
-  add_foreign_key "groups", "categories"
   add_foreign_key "groups", "users"
   add_foreign_key "points", "users"
-  add_foreign_key "solutions", "drills"
+  add_foreign_key "solutions", "drills”
 end
