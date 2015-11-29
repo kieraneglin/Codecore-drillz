@@ -1,6 +1,6 @@
 class CreatAdminUsers < ActiveRecord::Migration
     def change
-        unless table_exists :admin_users
+        drop_table :admin_users
         create_table(:admin_users) do |t|
           ## Database authenticatable
           t.string :email,              null: false, default: ""
@@ -41,4 +41,3 @@ class CreatAdminUsers < ActiveRecord::Migration
         # add_index :admin_users, :unlock_token,         unique: true
       end
     end
-end
