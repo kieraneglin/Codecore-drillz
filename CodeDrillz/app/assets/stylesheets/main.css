@@ -536,9 +536,9 @@ th {
 .glyphicon-chevron-left:before {
   content: "\e079";
 }
-.glyphicon-chevron-right:before {
+/*.glyphicon-chevron-right:before {
   content: "\e080";
-}
+}*/
 .glyphicon-plus-sign:before {
   content: "\e081";
 }
@@ -3006,6 +3006,12 @@ select[multiple].input-lg {
     font-size: 13px;
   }
 }
+
+.forgot {
+  font-size: 13px;
+  color: #798d8f;
+}
+
 .btn {
   display: inline-block;
   margin-bottom: 0;
@@ -3029,6 +3035,7 @@ select[multiple].input-lg {
 }
 
 .btn2 {
+  min-width: 150px;
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -7080,17 +7087,4 @@ a.list-group-item-danger.active:focus {
 }
 .chosen-select {
   width: 200px;
-}
-
-/* For Home - All drills */
-.all-drills {
-  text-align: center;
-  color: black;
-}
-.drill {
-  background-color: #EFEFEF;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 20px;
-  width: 50%;
 }

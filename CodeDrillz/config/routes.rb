@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   # devise_for :admin_users, ActiveAdmin::Devise.config
-  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # devise_for :users
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions'}
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
+  # devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions'}
   # devise_for :users, ActiveAdmin::Devise.config
   # , ActiveAdmin::Devise.config
   # ActiveAdmin.routes(self)
@@ -17,7 +17,11 @@ Rails.application.routes.draw do
 
   # get "users/create" => "users#create", as: :user_sign_up
 
-  resources :homes, only:[:index]
+  resources :homes
+  resources :badges
+  root "homes#welcome"
+  get "/welcome" => "homes#welcome", as: :welcome
+
 
 end
 # every single file in views/users is junk & should eventually be deleted.
