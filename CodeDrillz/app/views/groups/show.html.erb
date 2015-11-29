@@ -1,11 +1,13 @@
-<h1>drill group <%= @group.name%></h1>
+<h2>Drill Group <%= @group.name%></h2>
 
-<%= link_to "Edit", edit_group_path(@group),
-                                  class: "" %>
+<p><%= @group.description%></p>
 
-<%= link_to "Delete", group_path(@group), method: :delete, data: {confirm: "Are you sure ?"} %>
+<%= link_to "Edit", edit_group_path(@group), class: "btn2 btn-info btn-xs2" %>
+<%= link_to "Delete", group_path(@group), method: :delete, class: "btn2 btn-danger btn-xs2",
+                                                  data: {confirm: "Are you sure ?"} %>
 
 <p><%= @group.description%></p>
 <% @group.categories.each do |cat| %>
 	<%= cat.title%>
 <% end %>
+
