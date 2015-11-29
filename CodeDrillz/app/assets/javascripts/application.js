@@ -14,4 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require cocoon
 //= require_tree .
+$(document).ready(function() {
+
+});
+
+var ready;
+ready =function() {
+	$("#chosen-select").chosen();
+};
+
+$(document).ready(ready);
+$(document).on("page:load", ready);

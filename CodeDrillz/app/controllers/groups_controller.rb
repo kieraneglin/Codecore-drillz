@@ -7,8 +7,10 @@ class GroupsController < ApplicationController
  	def index 
  		@groups = Group.all
  	end
+
   def new
     # authenticate_user 
+    @categories = Category.all
     @group = Group.new
   end
 
@@ -59,7 +61,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit([:name, :description, :level, :badges, :points])
+    params.require(:group).permit(:name, :description, :level, :badges, :points, {category_ids:[]})
   end
 
 end
