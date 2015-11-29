@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   # devise_for :admin_users, ActiveAdmin::Devise.config
   # devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   # devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions'}
   # devise_for :users, ActiveAdmin::Devise.config
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   resources :groups
   resources :categories
   resources :users
+  ActiveAdmin.routes(self)
   # devise_for :users, controllers: {
           # sessions: 'users/sessions'
         # }
