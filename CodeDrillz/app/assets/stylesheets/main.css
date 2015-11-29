@@ -3006,6 +3006,12 @@ select[multiple].input-lg {
     font-size: 13px;
   }
 }
+
+.forgot {
+  font-size: 13px;
+  color: #798d8f;
+}
+
 .btn {
   display: inline-block;
   margin-bottom: 0;
@@ -3029,6 +3035,7 @@ select[multiple].input-lg {
 }
 
 .btn2 {
+  min-width: 150px;
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;

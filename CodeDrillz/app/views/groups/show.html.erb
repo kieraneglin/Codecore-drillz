@@ -1,13 +1,18 @@
-<h2>Drill Group:
+<h2>Drill Group -
   <%= @group.name%></h2>
-<p><%= @group.description %></p>
 
-<%= link_to "Edit", edit_group_path(@group), class: "btn2 btn-info btn-xs2" %>
-<%= link_to "Delete", group_path(@group), method: :delete, class: "btn2 btn-danger btn-xs2",
-                                                  data: {confirm: "Are you sure ?"} %>
+<p><%= @group.description%></p>
+
 <% @group.categories.each do |cat| %>
 <%= cat.title%>
 <% end %>
+<p class="text-right">
+
+  <%= link_to fa_icon("pencil-square-o"), edit_group_path(@group), class: "icon-big" %>
+  <%= link_to fa_icon("trash-o"), group_path(@group), method: :delete, class: "icon-big",
+                                                  data: {confirm: "Are you sure ?"} %>
+</p>
+
 <div>
   Drill:
   <% @group.drills.each do |drill| %>
