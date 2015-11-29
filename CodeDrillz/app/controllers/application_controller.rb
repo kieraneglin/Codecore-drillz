@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    groups_path
+    stored_location_for(resource) ||
+      if resource.is_a?(Admin)
+        admin_dashboard_path
+      else
+        groups_path
+      end
   end
   def after_sign_out_path_for(resource_or_scope)
     request.referrer
