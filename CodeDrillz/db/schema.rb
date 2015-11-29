@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128224020) do
+ActiveRecord::Schema.define(version: 20151129000051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20151128224020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "group_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categorizings", ["category_id"], name: "index_categorizings_on_category_id", using: :btree
+  add_index "categorizings", ["group_id"], name: "index_categorizings_on_group_id", using: :btree
 
   create_table "drills", force: :cascade do |t|
     t.text     "description"
@@ -102,6 +112,8 @@ ActiveRecord::Schema.define(version: 20151128224020) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "categorizings", "categories"
+  add_foreign_key "categorizings", "groups"
   add_foreign_key "drills", "groups"
   add_foreign_key "earned_badges", "badges"
   add_foreign_key "earned_badges", "groups"
