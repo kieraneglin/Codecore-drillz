@@ -1,12 +1,13 @@
-<h1 style="float: left">Drill Group:
-  <%= @group.name%></h1>
-<div style="display: block">
-  <%= link_to "Edit", edit_group_path(@group), class: "" %>
-</div>
-<h2>
-  <br>
-  Drills for rails basic routing
-</h2>
+<h2 style="float: left">Drill Group: <%= @group.name%></h2>
+<p><%= @group.description %></p>
+
+<%= link_to "Edit", edit_group_path(@group), class: "btn2 btn-info btn-xs2" %>
+<%= link_to "Delete", group_path(@group), method: :delete, class: "btn2 btn-danger btn-xs2",
+                                                  data: {confirm: "Are you sure ?"} %>
+<p><%= @group.description%></p>
+<% @group.categories.each do |cat| %>
+	<%= cat.title%>
+<% end %>
 
 Drill:
 <% @group.drills.each do |drill| %>
@@ -19,7 +20,3 @@ Drill:
 </p>
 <% end %>
   <%= link_to "New", new_group_drill_path(@group), class:"" %>
-<%#= link_to "Edit", edit_group_drill_path(@group, @drill), class: "" %>
-
-<!-- <p><%#= @group.description%></p> -->
-<!-- <p><%#= @group.category.inspect%></p> -->

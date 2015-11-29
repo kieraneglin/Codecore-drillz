@@ -1,12 +1,17 @@
-<%= link_to "Add Group", new_group_path %>
-
 <h3 class="text-center">Drills Group</h3>
+  <hr>
 
-<% @groups.each do |group| %>
-<%= group.name%>
-<%= link_to "View", group_path(group)%>
-<%= link_to "Edit", edit_group_path(group) %>
-<%= link_to "Delete", group_path(group),
-                                  method: :delete, data: {confirm: "Are you sure ?"}%>
-<hr>
-<% end%>
+<div>
+  <% @groups.each do |group| %>
+    <%= group.name%>
+    <%= link_to "View", group_path(group), class: "btn2 btn-success btn-xs2"%>
+    <%= link_to "Edit", edit_group_path(group), class: "btn2 btn-info btn-xs2" %>
+    <%= link_to "Delete", group_path(group), method: :delete,
+              class: "btn2 btn-danger btn-xs2", data: {confirm: "Are you sure ?"}%>
+  <hr>
+  <% end%>
+</div>
+
+<div class="text-right">
+  <%= link_to "Create a new group", new_group_path, class: "btn2 btn-success" %>
+</div>
