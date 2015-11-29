@@ -7081,3 +7081,16 @@ a.list-group-item-danger.active:focus {
 .chosen-select {
   width: 200px;
 }
+
+/* For Home - All drills */
+.all-drills {
+  text-align: center;
+  color: black;
+}
+.drill {
+  background-color: #EFEFEF;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 20px;
+  width: 50%;
+}
