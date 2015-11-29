@@ -15,10 +15,12 @@
       <% num += 1 %>
       <tr><td><%= num %></td>
           <td><%= cat.title %></td>
-          <td><%= link_to fa_icon("pencil-square-o"), edit_category_path(cat) %>
+          <p class="text-right">
+          <td><%= link_to fa_icon("pencil-square-o"), edit_category_path(cat), class: "icon-big" %>
               <%= link_to fa_icon("trash-o"), category_path(cat), method: :delete,
-                                            data: {confirm: "Are you sure?"} %>
+                                            data: {confirm: "Are you sure?"}, class: "icon-big" %>
           </td>
+          </p>
       </tr>
       <% end %>
     </tbody>

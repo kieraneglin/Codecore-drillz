@@ -1,18 +1,14 @@
 <h3 class="text-center">Log in</h3>
 
 
-<!-- <div class="form-control"> -->
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <%= f.input :email, required: false, autofocus: true   %>
     <%= f.input :password, required: false %>
+
+      <%= render "devise/shared/links" %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
-    <%= f.button :submit, "Log in", class: "btn2 btn-danger" %>
+    <%= f.button :submit, "LOG IN", class: "btn2 btn-success" %>
 
   <% end %>
-
-<!-- </div> -->
-
-
-<%= render "devise/shared/links" %>
