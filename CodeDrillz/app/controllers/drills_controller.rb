@@ -31,6 +31,7 @@ class DrillsController < ApplicationController
   end
 
   def update
+    @drill.solutions.delete_all
     if @drill.update(drill_params)
       redirect_to group_path(@drill.group), notice: 'Drill is updated!'
     else
