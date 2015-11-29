@@ -6,3 +6,6 @@
 <%= link_to "Delete", group_path(@group), method: :delete, data: {confirm: "Are you sure ?"} %>
 
 <p><%= @group.description%></p>
+<% @group.categories.each do |cat| %>
+	<%= cat.title%>
+<% end %>
