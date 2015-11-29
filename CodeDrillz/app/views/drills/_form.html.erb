@@ -1,40 +1,26 @@
 <%= @drill.errors.full_messages.join(", ") %>
 
-
 <div class="form-horizontal">
-  <!-- <fieldset> -->
+  <%= form_for [@group, @drill] do |f|  %>
 
-  <!--  form  -->
-    <%= form_for [@group, @drill] do |f|  %>
+  <div class="form-group">
+    <%= f.label :description%>
+    <%= f.text_area :description, class: "form-control"%>
+  </div>
 
-      <div class="form-group">
-        <%= f.label :description%>
-        <%= f.text_area :description, class: "form-control"%>
-      </div>
-
-
-      <div class="form-group">
-        <%= f.fields_for :solutions do |solution| %>
-          <%= render "solution_fields", f: solution %>
-          .links
-            <%= link_to_add_association 'add solution', f, :solutions %>
-          <%= f.submit %>
-        <% end %>
-
-        <%#= f.radio_button("type", "1") %>
-        <%#= f.label :type, "Exact Match", :value => "1" %>
-
-        <%#= f.radio_button("type", "2") %>
-        <%#= f.label :type, "Regular Expression", :value => "2" %>
-
-        <%#= f.radio_button("type", "3") %>
-        <%#= f.label :type, "Test (Rspec / Jasmine)", :value => "3" %>
-      </div>
-
-      <div class="form-group text-right">
-        <%= f.submit "Save", class: "btn2 btn-danger" %>
-      </div>
+  <div class="form-group">
+    <%= f.fields_for :solutions do |solution| %>
+      <%= render "solution_fields", :f => solution %>
     <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add solution', f, :solutions %>
+    </div>
+  </div>
+    <%= f.submit 'Add Another Solution' %>
+  </div>
 
-  <!-- </fieldset> -->
+  <div class="form-group text-right">
+    <%= f.submit "Save", class: "btn2 btn-danger" %>
+  </div>
+  <% end %>
 </div>
