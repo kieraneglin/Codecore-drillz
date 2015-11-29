@@ -6,7 +6,7 @@ class DrillsController < ApplicationController
   end
 
   def drill_params
-    params.require(:drill).permit(:description, :correct_answer, :type)
+    params.require(:drill).permit(:description, solutions_attributes: [:drill_id, :solution_type, :correct_answer, :_destroy])
   end
 
   def new
