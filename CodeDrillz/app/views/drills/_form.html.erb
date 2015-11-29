@@ -11,7 +11,16 @@
         <%= f.label :description%>
         <%= f.text_area :description, class: "form-control"%>
       </div>
+
+
       <div class="form-group">
+        <%= f.fields_for :solutions do |solution| %>
+          <%= render "solution_fields", f: solution %>
+          .links
+            <%= link_to_add_association 'add solution', f, :solutions %>
+          <%= f.submit %>
+        <% end %>
+
         <%#= f.radio_button("type", "1") %>
         <%#= f.label :type, "Exact Match", :value => "1" %>
 

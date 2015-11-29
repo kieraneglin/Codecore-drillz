@@ -1,0 +1,17 @@
+.nested-fields
+  .field
+      = f.check_box :done
+      = f.label :done
+
+      <%= f.radio_button("type", "1") %>
+      <%= f.label :solution_type, "Exact Match", :value => "1" %>
+
+      <%= f.radio_button("type", "2") %>
+      <%= f.label :solution_type, "Regular Expression", :value => "2" %>
+
+      <%= f.radio_button("type", "3") %>
+      <%= f.label :solution_type, "Test (Rspec / Jasmine)", :value => "3" %>
+  <%#= f.input :solution_type %>
+  .field
+  <%= f.input :correct_answer %>
+  <%= link_to_remove_association "remove solution", f %>

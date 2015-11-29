@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # devise_for :users, ActiveAdmin::Devise.config
   # , ActiveAdmin::Devise.config
   # ActiveAdmin.routes(self)
-  resources :groups
+  resources :groups do
+    resources :drills
+  end
   resources :categories
   resources :users
   # devise_for :users, controllers: {
