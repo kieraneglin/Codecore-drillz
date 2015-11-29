@@ -1,0 +1,17 @@
+<div class="nested-fields">
+  <div class ="field">
+    <%= f.radio_button("solution_type", "1") %>
+    <%= f.label :solution_type, "Exact Match", :value => "1" %>
+
+    <%= f.radio_button("solution_type", "2") %>
+    <%= f.label :solution_type, "Regular Expression", :value => "2" %>
+
+    <%= f.radio_button("solution_type", "3") %>
+    <%= f.label :solution_type, "Test (Rspec / Jasmine)", :value => "3" %>
+  </div>
+  <div class ="field">
+    <%= f.text_area :correct_answer %>
+    <%= link_to_remove_association "remove solution", f %>
+  </div>
+    <%= f.submit 'Save' %>
+</div>

@@ -4,12 +4,12 @@ class GroupsController < ApplicationController
  #  before_action :authenticate_user, except: [:index, :show]
  #  before_action :authorize, only: [:edit, :update, :destroy]
 
- 	def index 
+ 	def index
  		@groups = Group.all
  	end
 
   def new
-    # authenticate_user 
+    # authenticate_user
     @categories = Category.all
     @group = Group.new
   end
@@ -25,7 +25,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @drill = Drill.new
   end
 
   def edit
@@ -34,7 +33,7 @@ class GroupsController < ApplicationController
 
   def update
     if  @group.update(group_params)
-      redirect_to group_path(@group), notice: "group updated!" 
+      redirect_to group_path(@group), notice: "group updated!"
     else
       render :edit
     end

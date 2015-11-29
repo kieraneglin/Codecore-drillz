@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
-        <li><%= link_to "Home" %></li>
+        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Drillz", groups_path %></li>
         <li><%= link_to "Badge" %></li>
         <li><%= link_to "Categories", categories_path %></li>
@@ -25,7 +25,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Profile</a></li>
             <li class="divider"></li>
-            <li><%= link_to "Log out", destroy_user_session_path %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
       </ul>
@@ -36,8 +36,12 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="navbar-form navbar-right">
-        <%= link_to "LOG IN", new_user_session_path, class: "btn2 btn-success-2" %>
-        <%= link_to "CREATE FREE ACCOUNT", new_user_password_path, class: "btn2 btn-success" %>
+        <% if !user_signed_in? %>
+          <%= link_to "LOG IN", new_user_session_path, class: "btn2 btn-success-2" %>
+          <%= link_to "CREATE FREE ACCOUNT", new_user_registration_path, class: "btn2 btn-success" %>
+        <% else %>
+         <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "btn2 btn-success-2" %>
+         <% end %>
         <!-- <li><a href="#">Link</a></li> -->
       </ul>
     </div>
