@@ -1,0 +1,25 @@
+<%= @drill.errors.full_messages.join(", ") %>
+
+<div class="form-horizontal">
+  <%= form_for [@group, @drill] do |f|  %>
+
+  <div class="form-group">
+    <%= f.label :description%>
+    <%= f.text_area :description, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.fields_for :solutions do |solution| %>
+      <%= render "solution_fields", :f => solution %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add solution', f, :solutions %>
+    </div>
+  </div>
+</div>
+
+  <div class="form-group text-right">
+    <%= f.submit "Save", class: "btn2 btn-danger" %>
+  </div>
+  <% end %>
+</div>

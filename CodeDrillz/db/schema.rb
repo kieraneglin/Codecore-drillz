@@ -175,21 +175,14 @@ ActiveRecord::Schema.define(version: 20151129192302) do
   create_table "solutions", force: :cascade do |t|
     t.integer  "drill_id"
     t.text     "correct_answer"
-    t.integer  "type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "solution_type"
   end
 
   add_index "solutions", ["drill_id"], name: "index_solutions_on_drill_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "password_digest"
-    t.boolean  "admin"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -200,11 +193,14 @@ ActiveRecord::Schema.define(version: 20151129192302) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.boolean  "approved"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "categorizings", "categories"
