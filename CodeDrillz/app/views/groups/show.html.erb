@@ -1,22 +1,23 @@
-<h2 style="float: left">Drill Group: <%= @group.name%></h2>
+<h2>Drill Group:
+  <%= @group.name%></h2>
 <p><%= @group.description %></p>
 
 <%= link_to "Edit", edit_group_path(@group), class: "btn2 btn-info btn-xs2" %>
 <%= link_to "Delete", group_path(@group), method: :delete, class: "btn2 btn-danger btn-xs2",
                                                   data: {confirm: "Are you sure ?"} %>
-<p><%= @group.description%></p>
 <% @group.categories.each do |cat| %>
-	<%= cat.title%>
+<%= cat.title%>
 <% end %>
-
-Drill:
-<% @group.drills.each do |drill| %>
-<p>
-  <%= drill.description %>
-  <%= link_to "Edit", edit_group_drill_path(@group, drill), class: "" %>
-  <%= link_to "delete", group_drill_path(@group, drill), class: "glyphicon glyphicon-trash",
+<div>
+  Drill:
+  <% @group.drills.each do |drill| %>
+  <p>
+    <%= drill.description %>
+    <%= link_to "Edit", edit_group_drill_path(@group, drill), class: "" %>
+    <%= link_to "delete", group_drill_path(@group, drill), class: "glyphicon glyphicon-trash",
                 method: :delete,
                 data: {confirm: "Are you sure?"} %>
-</p>
-<% end %>
+  </p>
+  <% end %>
   <%= link_to "New", new_group_drill_path(@group), class:"" %>
+</div>
