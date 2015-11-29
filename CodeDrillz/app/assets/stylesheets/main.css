@@ -536,9 +536,9 @@ th {
 .glyphicon-chevron-left:before {
   content: "\e079";
 }
-.glyphicon-chevron-right:before {
+/*.glyphicon-chevron-right:before {
   content: "\e080";
-}
+}*/
 .glyphicon-plus-sign:before {
   content: "\e081";
 }
@@ -3029,6 +3029,7 @@ select[multiple].input-lg {
 }
 
 .btn2 {
+  min-width: 150px;
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;

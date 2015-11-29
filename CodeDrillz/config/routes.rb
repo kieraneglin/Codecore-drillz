@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :homes
   resources :badges
-
+  root "homes#welcome"
   get "/welcome" => "homes#welcome", as: :welcome
 
 
