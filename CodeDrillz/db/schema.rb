@@ -175,9 +175,9 @@ ActiveRecord::Schema.define(version: 20151129192302) do
   create_table "solutions", force: :cascade do |t|
     t.integer  "drill_id"
     t.text     "correct_answer"
-    t.integer  "type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "solution_type"
   end
 
   add_index "solutions", ["drill_id"], name: "index_solutions_on_drill_id", using: :btree

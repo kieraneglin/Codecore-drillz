@@ -1,13 +1,28 @@
-<h2>Drill Group - <%= @group.name%></h2>
+<h2>Drill Group -
+  <%= @group.name%></h2>
 
 <p><%= @group.description%></p>
-<% @group.categories.each do |cat| %>
-	<%= cat.title%>
-<% end %>
 
+<% @group.categories.each do |cat| %>
+<%= cat.title%>
+<% end %>
 <p class="text-right">
 
-<%= link_to fa_icon("pencil-square-o"), edit_group_path(@group), class: "icon-big" %>
-<%= link_to fa_icon("trash-o"), group_path(@group), method: :delete, class: "icon-big",
+  <%= link_to fa_icon("pencil-square-o"), edit_group_path(@group), class: "icon-big" %>
+  <%= link_to fa_icon("trash-o"), group_path(@group), method: :delete, class: "icon-big",
                                                   data: {confirm: "Are you sure ?"} %>
 </p>
+
+<div>
+  Drill:
+  <% @group.drills.each do |drill| %>
+  <p>
+    <%= drill.description %>
+    <%= link_to "Edit", edit_group_drill_path(@group, drill), class: "" %>
+    <%= link_to "delete", group_drill_path(@group, drill), class: "glyphicon glyphicon-trash",
+                method: :delete,
+                data: {confirm: "Are you sure?"} %>
+  </p>
+  <% end %>
+  <%= link_to "New", new_group_drill_path(@group), class:"" %>
+</div>
