@@ -1,4 +1,4 @@
-class AddFieldsToUsers < ActiveRecord::Migration
+class AddMissingFieldsToUsers < ActiveRecord::Migration
   def change
     unless column_exists? :users, :first_name
       add_column :users, :first_name, :string

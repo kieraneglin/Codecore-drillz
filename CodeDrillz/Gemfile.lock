@@ -50,6 +50,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    ambry (0.3.1)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
@@ -146,6 +147,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    merit (2.3.2)
+      ambry (~> 0.3.0)
     mime-types (2.99)
     mini_portile (0.6.2)
     minitest (5.8.3)
@@ -269,6 +272,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  merit
   pg
   rails (= 4.2.4)
   rails-erd
