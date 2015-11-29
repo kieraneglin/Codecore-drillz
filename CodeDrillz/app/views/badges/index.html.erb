@@ -1,0 +1,30 @@
+<h1 class="text-center">Badges Index</h1>
+<div>
+  <!--  class="margin-top-30" -->
+  <span><%= link_to "add new badge", new_badge_path, class: "btn2 btn-success" %></span>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>url</th>
+        <td>image</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% num = 0 %>
+      <% @badge.each do |b| %>
+      <% num += 1 %>
+      <tr><td><%= num %></td>
+          <td><%= b.url %></td>
+          <td><img src="<%= b.url %>" width="50px;"></td>
+          <td><%= link_to "edit", edit_badge_path(b), class: "glyphicon glyphicon-edit" %>
+              <%= link_to "delete", badge_path(b), class: "glyphicon glyphicon-trash",
+                          method: :delete,
+                          data: {confirm: "Are you sure?"} %>
+          </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
