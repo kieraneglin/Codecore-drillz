@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   # get "users/create" => "users#create", as: :user_sign_up
 
+  resources :homes, only:[:index]
+
 end
 # every single file in views/users is junk & should eventually be deleted.
 # everything you'd think to be in that folder is actually in views/devise
