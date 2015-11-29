@@ -41,6 +41,6 @@ class DrillsController < ApplicationController
   def destroy
     @drill.destroy
     flash[:notice] = 'Category deleted successfully'
-    redirect_to groups_path(@drill.group)
+    redirect_to group_path(@drill.group)
   end
 end
