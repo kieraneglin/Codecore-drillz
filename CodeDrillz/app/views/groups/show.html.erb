@@ -1,9 +1,8 @@
-<h1>drill group <%= @group.name%></h1>
+<h1>Drill Group: <%= @group.name%></h1>
 
 <%= link_to "Edit", edit_group_path(@group),
                                   class: "" %>
-
-<%= link_to "Delete", group_path(@group), method: :delete, data: {confirm: "Are you sure ?"} %>
+<h2>Drills for rails basic routing</h2>
 
 <p><%= @group.description%></p>
 <p><%= @group.category.inspect%></p>
