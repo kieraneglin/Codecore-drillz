@@ -1,7 +1,6 @@
 <h1 class="text-center">Categories</h1>
 <div>
   <!--  class="margin-top-30" -->
-  <span><%= link_to "Create a new category", new_category_path, class: "btn2 btn-success" %></span>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -16,13 +15,16 @@
       <% num += 1 %>
       <tr><td><%= num %></td>
           <td><%= cat.title %></td>
-          <td><%= link_to "edit", edit_category_path(cat), class: "glyphicon glyphicon-edit" %>
-              <%= link_to "delete", category_path(cat), class: "glyphicon glyphicon-trash",
-                          method: :delete,
-                          data: {confirm: "Are you sure?"} %>
+          <td><%= link_to fa_icon("pencil-square-o"), edit_category_path(cat) %>
+              <%= link_to fa_icon("trash-o"), category_path(cat), method: :delete,
+                                            data: {confirm: "Are you sure?"} %>
           </td>
       </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+<div class="text-right">
+  <span><%= link_to "Create a new category", new_category_path, class: "btn2 btn-success" %></span>
+
 </div>
