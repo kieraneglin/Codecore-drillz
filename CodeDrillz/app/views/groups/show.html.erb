@@ -1,8 +1,25 @@
-<h1>Drill Group: <%= @group.name%></h1>
-<div>
+<h1 style="float: left">Drill Group:
+  <%= @group.name%></h1>
+<div style="display: block">
   <%= link_to "Edit", edit_group_path(@group), class: "" %>
 </div>
-<h2>Drills for rails basic routing</h2>
+<h2>
+  <br>
+  Drills for rails basic routing
+</h2>
 
-<p><%= @group.description%></p>
-<p><%= @group.category.inspect%></p>
+Drill:
+<% @group.drills.each do |drill| %>
+<p>
+  <%= drill.description %>
+  <%= link_to "Edit", edit_group_drill_path(@group, drill), class: "" %>
+  <%= link_to "delete", group_drill_path(@group, drill), class: "glyphicon glyphicon-trash",
+                method: :delete,
+                data: {confirm: "Are you sure?"} %>
+</p>
+<% end %>
+  <%= link_to "New", new_group_drill_path(@group), class:"" %>
+<%#= link_to "Edit", edit_group_drill_path(@group, @drill), class: "" %>
+
+<!-- <p><%#= @group.description%></p> -->
+<!-- <p><%#= @group.category.inspect%></p> -->

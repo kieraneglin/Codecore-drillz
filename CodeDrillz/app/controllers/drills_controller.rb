@@ -1,40 +1,38 @@
 class DrillsController < ApplicationController
+  before_action :drill, only: [:show, :edit, :update, :destroy]
 
-  before_action :drill, only: [:create, :show, :edit, :update, :destroy]
+  def drill
+    @drill ||= Drill.find params[:id]
+  end
 
-  # ----------------------------------------------------------------------------
-    def drill
-      @drill ||= Drill.find params[:id]
-    end
+  def drill_params
+    params.require(:drill).permit(:description, :correct_answer, :type)
+  end
 
-    def drill_params
-      params.require(:drill).permit(:description)
-    end
-  # ----------------------------------------------------------------------------
+  def new
+    @group = Group.find params[:group_id]
+    @drill = Drill.new
+  end
+
   def create
     @group = Group.find params[:group_id]
+    @drill = Drill.new(drill_params)
     @drill.group = @group
     # @drill.user = current_user
     if @drill.save
-      redirect_to(groups_path(@drill.group), notice: "Drill is created!")
+      redirect_to(group_path(@drill.group), notice: 'Drill is created!')
     else
       render :new
     end
   end
 
-  # def show
-  #   @group ||= Group.find params[:id]
-  #   group_params = params.require(:group).permit([:name])
-  #   @group = Group.new(group_params)
-  # end
-
   def edit
-
+    @group = Group.find params[:group_id]
   end
 
   def update
     if @drill.update(drill_params)
-      redirect_to groups_path(@drill.group), notice: "Drill is updated!"
+      redirect_to group_path(@drill.group), notice: 'Drill is updated!'
     else
       render :edit
     end
@@ -42,7 +40,7 @@ class DrillsController < ApplicationController
 
   def destroy
     @drill.destroy
-    flash[:notice] = "Category deleted successfully"
+    flash[:notice] = 'Category deleted successfully'
     redirect_to groups_path(@drill.group)
   end
 end
