@@ -1,2 +1,8 @@
-<h1>testtttt</h1>
-<%= current_user.first_name %>
+<h1>Your profile</h1>
+<h3>Points:</h3>
+<%= current_user.points %>
+<br>
+<h3>Badges</h3>
+<% current_user.badges.each do |b| %>
+<img src="<%=b.custom_fields[:url]  %>" width="50">
+<% end %>
