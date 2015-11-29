@@ -9,17 +9,19 @@ class GroupsController < ApplicationController
  	end
   def new
     # authenticate_user 
+    @categories = Category.all
     @group = Group.new
   end
 
   def create
     @group = Group.new(group_params)
+    render text: group_params
     # @group.user = current_user
-    if @group.save
-      redirect_to(group_path(@group))
-    else
-      render :new
-    end
+    # if @group.save
+    #   redirect_to(group_path(@group))
+    # else
+    #   render :new
+    # end
   end
 
   def show
@@ -59,7 +61,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit([:name, :description, :level, :badges, :points])
+    params.require(:group).permit([:name, :description, :level, :badges, :points, {category_ids:[]}])
   end
 
 end
