@@ -6,7 +6,7 @@ class DrillsController < ApplicationController
     def drill
       @drill ||= Drill.find params[:id]
     end
-    
+
     def drill_params
       params.require(:drill).permit(:description)
     end

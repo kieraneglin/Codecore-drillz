@@ -1,7 +1,7 @@
 <h1>Drill Group: <%= @group.name%></h1>
-
-<%= link_to "Edit", edit_group_path(@group),
-                                  class: "" %>
+<div>
+  <%= link_to "Edit", edit_group_path(@group), class: "" %>
+</div>
 <h2>Drills for rails basic routing</h2>
 
 <p><%= @group.description%></p>
