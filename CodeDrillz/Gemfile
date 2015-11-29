@@ -33,6 +33,9 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem "awesome_print"
   gem "interactive_editor"
+  gem "better_errors"
+
+gem "binding_of_caller"
   #gem "hirb"
 
   gem 'spring'
