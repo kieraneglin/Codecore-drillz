@@ -12,7 +12,7 @@
           </div>
           <br>
           <div>
-            <%= link_to "Start", "", class: "btn-drill" %>
+            <%= link_to "Start", group_drill_path(d.drill.group.id, d.drill_id), class: "btn-drill" %>
             <%= link_to "Remove", home_path(d), class: "btn-drill",
                     method: :delete %>
           </div>
