@@ -1,0 +1,24 @@
+<div>
+  <% if @user_drill %>
+    <% @user_drill.each do |d| %>
+
+      <div class="drill-box">
+        <div class="my-drill">
+          <div class="text-center"><%= d.drill.description.upcase %></div>
+          <br>
+          <div>
+            Taken: 3 times<br>
+            Score: 70%
+          </div>
+          <br>
+          <div>
+            <%= link_to "Start", "", class: "btn-drill" %>
+            <%= link_to "Remove", home_path(d), class: "btn-drill",
+                    method: :delete %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
