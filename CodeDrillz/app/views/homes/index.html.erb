@@ -1,16 +1,20 @@
 <div class="tabs-border">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">All Drills</a></li>
+    <% if user_signed_in? %>
     <li><a data-toggle="tab" href="#mydrill">My Drills</a></li>
+    <% end %>
   </ul>
 
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
       <%= render "all_drill" %>
     </div>
+    <% if user_signed_in? %>
     <div id="mydrill" class="tab-pane fade">
       <%= render "my_drill" %>
     </div>
+    <% end %>
   </div>
 
 </div>

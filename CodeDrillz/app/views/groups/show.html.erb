@@ -6,6 +6,9 @@
 <% @group.categories.each do |cat| %>
   <%= cat.title%>
 <% end %>
+<br>
+<% badge = Merit::Badge.find(@group.badge.to_i) %>
+<%= image_tag(badge.custom_fields[:url], width: 50) %>
 <p class="text-right">
 
   <%= link_to fa_icon("pencil-square-o"), edit_group_path(@group), class: "icon-big" %>

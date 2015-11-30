@@ -34,6 +34,7 @@ class DrillsController < ApplicationController
       solutions = Solution.find_by(correct_answer: params[:user_answer])
       if solutions
         # user answered correctly
+        current_user.add_points 10
         @checked_answer = true
         flash[:notice] = 'Answer Correct!'
         redirect_to group_drill_path
