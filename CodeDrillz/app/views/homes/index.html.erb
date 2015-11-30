@@ -1,27 +1,16 @@
 <div class="tabs-border">
-  <h2>Drills</h2>
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#menu1">All Drills</a></li>
-    <li><a href="#my_drill">My Drills</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">All Drills</a></li>
+    <li><a data-toggle="tab" href="#mydrill">My Drills</a></li>
   </ul>
 
   <div class="tab-content">
-    <div id="all_drill" class="tab-pane fade in active">
+    <div id="home" class="tab-pane fade in active">
       <%= render "all_drill" %>
     </div>
-    <div id="my_drill" class="tab-pane fade">
-      nothing yet
-      <%#= render "my_drill" %>
+    <div id="mydrill" class="tab-pane fade">
+      <%= render "my_drill" %>
     </div>
   </div>
+
 </div>
-
-
-
-  <script>
-    $(document).ready(function(){
-        $(".nav-tabs a").click(function(){
-            $(this).tab('show');
-        });
-    });
-  </script>
