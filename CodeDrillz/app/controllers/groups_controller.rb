@@ -12,9 +12,12 @@ class GroupsController < ApplicationController
     # authenticate_user
     @categories = Category.all
     @group = Group.new
+
+		@badges = Merit::Badge.all
   end
 
   def create
+		# render text: params
     @group = Group.new(group_params)
     # @group.user = current_user
     if @group.save
@@ -60,7 +63,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, :description, :level, :badges, :points, {category_ids:[]})
+    params.require(:group).permit(:name, :description, :level, :badge, :points, {category_ids:[]})
   end
 
 end
