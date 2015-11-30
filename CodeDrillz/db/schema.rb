@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129192302) do
+ActiveRecord::Schema.define(version: 20151130003459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,12 +118,9 @@ ActiveRecord::Schema.define(version: 20151129192302) do
     t.text     "description"
     t.integer  "level"
     t.integer  "points"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -182,14 +179,17 @@ ActiveRecord::Schema.define(version: 20151129192302) do
 
   add_index "solutions", ["drill_id"], name: "index_solutions_on_drill_id", using: :btree
 
+  create_table "user_drills", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "drill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_drills", ["drill_id"], name: "index_user_drills_on_drill_id", using: :btree
+  add_index "user_drills", ["user_id"], name: "index_user_drills_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "password_digest"
-    t.boolean  "admin"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -200,11 +200,14 @@ ActiveRecord::Schema.define(version: 20151129192302) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.boolean  "approved"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "categorizings", "categories"
@@ -215,7 +218,8 @@ ActiveRecord::Schema.define(version: 20151129192302) do
   add_foreign_key "earned_badges", "users"
   add_foreign_key "group_badges", "badges"
   add_foreign_key "group_badges", "groups"
-  add_foreign_key "groups", "users"
   add_foreign_key "points", "users"
   add_foreign_key "solutions", "drills"
+  add_foreign_key "user_drills", "drills"
+  add_foreign_key "user_drills", "users"
 end
