@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       if resource.is_a?(Admin)
         admin_dashboard_path
       else
-        groups_path
+        homes_path
       end
   end
   def after_sign_out_path_for(resource_or_scope)
