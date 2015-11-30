@@ -9,16 +9,16 @@
       <tr>
         <td><%= num %></td>
         <td><%= cat.title %></td>
-        <p class="text-right">
+        <!-- <p class="text-right"> -->
 
-          <td>
+          <td style="text-align: right">
             <% if admin_user_signed_in? %>
             <%= link_to fa_icon("pencil-square-o"), edit_category_path(cat), class: "icon-big" %>
             <%= link_to fa_icon("trash-o"), category_path(cat), method: :delete,
                                             data: {confirm: "Are you sure?"}, class: "icon-big" %>
             <% end %>
           </td>
-        </p>
+        <!-- </p> -->
       </tr>
       <% end %>
     </tbody>

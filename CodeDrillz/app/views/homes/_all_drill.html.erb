@@ -1,3 +1,5 @@
+
+
   <div class="all-drills text-center">
     <% @drills.each do |drill| %>
       <div class="drill-box flippin">
@@ -9,9 +11,7 @@
         <div class="back card">
           <p class="drill-back">
             <%= link_to "Add to my Drills", add_drill_path(drill),
-                        class: "btn2 btn-success-2 fa fa-chevron-right",
-                        method: :post
-                          %>
+                        class: "btn2 btn-success-card", method: :post %>
           </p>
         </div>
       </div>
