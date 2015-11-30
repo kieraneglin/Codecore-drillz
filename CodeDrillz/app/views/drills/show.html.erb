@@ -21,15 +21,15 @@
 
         <div>
 
-          <% if @user_answer != "" %>
-            <% if @checked_answer == true %>
-              <% byebug %>
-              <div class="correct">
+          <%# if @user_answer != "" %>
+            <%# if @checked_answer == true %>
+              <%# byebug %>
+              <!-- <div class="correct">
                 Correct!
-                <%= render "correct_answer" %>
-              </div>
-            <% end %>
-          <% end %>
+                <%#= render "correct_answer" %>
+              </div> -->
+            <%# end %>
+          <%# end %>
 <!--
 
           <%# else %>
@@ -39,13 +39,13 @@
         </div>
 
 
-        <div class="correct-answers">
+        <!-- <div class="correct-answers">
           Correct Answers:
-          <% drill.solutions.each do |solution| %>
+          <%# drill.solutions.each do |solution| %>
             <br>
-            <%= solution.correct_answer %>
-          <% end %>
-        </div>
+            <%#= solution.correct_answer %>
+          <%# end %>
+        </div> -->
 
 
       </div>
