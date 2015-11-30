@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :points, dependent: :destroy
   has_many :groups, dependent: :destroy
   has_many :earned_badges, through: :groups
+  has_many :user_drills, dependent: :destroy
+  has_many :drills, through: :user_drills
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true

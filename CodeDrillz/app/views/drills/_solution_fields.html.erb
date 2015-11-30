@@ -1,6 +1,6 @@
-<!-- <div class="nested-fields"> -->
+<div class="nested-fields">
 
-  <!-- <div class ="field"> -->
+  <div class ="field">
     <%= f.radio_button("solution_type", "1") %>
     <%= f.label :solution_type, "Exact Match", :value => "1" %>
 
@@ -11,12 +11,12 @@
     <%= f.label :solution_type, "Test (Rspec / Jasmine)", :value => "3" %>
 
     <%= f.text_area :correct_answer, class: "form-control" %>
-    <br>
     <div>
-      <%= f.submit 'Save', class: "btn2 btn-success" %>
+    <br>
       <%= link_to_remove_association "Remove solution", f, class: "btn2 btn-danger" %>
+      <%#= f.submit 'Save', class: "btn2 btn-success" %>
     </div>
 
-  <!-- </div> -->
+  </div>
 
-<!-- </div> -->
+</div>
