@@ -28,25 +28,25 @@ class DrillsController < ApplicationController
 
   def show
     @group = Group.find params[:group_id]
-    @drill.solutions.each do |solution|
-      if(solution.solution_type === 1 ){
-        if(user-answer === solution.correct_answer){
-          # undo the hide
-        end
-        }
-      }elsif(solution.solution_type === 2){
-        if(user-answer is similar to solution.correct_answer){
-          # undo the hide
-        end
-        }
-      }elsif(solution_type === 3){
-        if(user-answer passes Rspec test){
-          # undo the hide
-        end
-        }
-      }
-      end
-    end
+    # @drill.solutions.each do |solution|
+    #   if(solution.solution_type === 1 ){
+    #     if(user-answer === solution.correct_answer){
+    #       # undo the hide
+    #     end
+    #     }
+    #   }elsif(solution.solution_type === 2){
+    #     if(user-answer is similar to solution.correct_answer){
+    #       # undo the hide
+    #     end
+    #     }
+    #   }elsif(solution_type === 3){
+    #     if(user-answer passes Rspec test){
+    #       # undo the hide
+    #     end
+    #     }
+    #   }
+    #   end
+    # end
   end
 
   def edit
