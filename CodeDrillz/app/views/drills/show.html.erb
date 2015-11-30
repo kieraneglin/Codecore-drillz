@@ -1,0 +1,31 @@
+<h2>Drill Group: <%= @group.name %></h2>
+<div>
+  <p>
+    Drill:
+    <% @group.drills.each do |drill|%>
+      <%= drill.description %>
+      <div>
+        Your Answer:
+        <form id="answer">
+          <input type="text_area" id="<%= dom_id(drill) %>-user-answer"></input>
+          <input type="submit"></input>
+        </form>
+      </div>
+      <div id ="<%= dom_id(drill) %>-correct-answer" style="display: none">
+        <div class="correct">
+          Correct!
+        </div>
+        <div class="incorrect">
+          Incorrect!
+        </div>
+        <div class="correct-answers">
+          Correct Answers:
+          <% drill.solutions.each do |solution| %>
+            <br>
+            <%= solution.correct_answer %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </p>
+</div>
