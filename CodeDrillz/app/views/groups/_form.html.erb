@@ -29,8 +29,13 @@
 
       <!-- Using dummy for now since we are not sure about badges -->
       <div class="form-group">
-        <%= f.radio_button("badges", "1") %>
-        <%= f.label :level, "Badges", :value => "1" %>
+
+        <%= f.collection_radio_buttons(:badge, Merit::Badge.all, :id, :custom_fields) do |b|
+            b.label {
+               b.radio_button + image_tag(b.object.custom_fields[:url], width: 50)
+            }
+        end %>
+
       </div>
       <div class="form-group">
         <%= f.label :points%>
