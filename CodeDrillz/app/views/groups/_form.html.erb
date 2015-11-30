@@ -30,7 +30,7 @@
       <!-- Using dummy for now since we are not sure about badges -->
       <div class="form-group">
 
-        <%= f.collection_radio_buttons(:id, Merit::Badge.all, :id, :custom_fields) do |b|
+        <%= f.collection_radio_buttons(:badge, Merit::Badge.all, :id, :custom_fields) do |b|
             b.label {
                b.radio_button + image_tag(b.object.custom_fields[:url], width: 50)
             }
