@@ -8,7 +8,10 @@
         </div>
         <div class="back card">
           <p class="drill-back">
-            <%= link_to "Add to my Drills", "", class: "btn2 btn-success-2 fa fa-chevron-right"%>
+            <%= link_to "Add to my Drills", add_drill_path(drill),
+                        class: "btn2 btn-success-2 fa fa-chevron-right",
+                        method: :post
+                          %>
           </p>
         </div>
       </div>

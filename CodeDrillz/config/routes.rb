@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :groups do
     resources :drills
   end
+
   resources :categories
   get "/users/profile" => "users#show", as: :profile
   resources :users
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
 
   # get "users/create" => "users#create", as: :user_sign_up
 
+  post "/homes/:drill_id/add" => "homes#create", as: :add_drill
 
   resources :homes
   resources :badges

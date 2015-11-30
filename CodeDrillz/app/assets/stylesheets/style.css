@@ -47,7 +47,40 @@
 
 }
 
-.all-drills {
+.my-drill {
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  color: #4D4D4D;
+  height: 220px;
+  width: 30%;
+  position: relative;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+}
+
+.btn-drill {
+  color: #ffffff;
+  background-color: #18bc9c;
+  border-color: #18bc9c;
+
+  min-width: 80px;
+  display: block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  ouch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  padding: 5px;
+  font-size: 15px;
+  line-height: 1.42857143;
+  /*border-radius: 10px;*/
+  -webkit-user-select: none;
+  margin-top:10px;
 
 }
 
