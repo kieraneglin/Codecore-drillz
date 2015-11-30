@@ -29,20 +29,38 @@ Merit::Badge.create!(
 )
 Merit::Badge.create!(
   id: 2,
-  name: "User Authentication Master",
-  description: "Complete all the uAuth challenges",
+  name: "CSS Master",
+  description: "Complete all CSS challenges",
   custom_fields: {
     difficulty: :silver,
-    url: "https://achievement-images.teamtreehouse.com/badges_DD_ObjectiveC_Stage2.png"
+    url: "https://achievement-images.teamtreehouse.com/badges_bonus_css3.png"
   }
 )
 Merit::Badge.create!(
   id: 3,
-  name: "Ruby Master",
-  description: "Complete all the Ruby challenges",
+  name: "Security Master",
+  description: "Complete all the Security challenges",
   custom_fields: {
     difficulty: :gold,
-    url: "https://achievement-images.teamtreehouse.com/badges_ruby_rubygems_Stage2.png"
+    url: "https://achievement-images.teamtreehouse.com/badges_SimpleFacebook_Stage3.png"
+   }
+)
+Merit::Badge.create!(
+  id: 4,
+  name: "Postgres",
+  description: "Complete all the Postgres challenges",
+  custom_fields: {
+    difficulty: :gold,
+    url: "https://achievement-images.teamtreehouse.com/badges_DD_Database_Stage3.png"
+   }
+)
+Merit::Badge.create!(
+  id: 5,
+  name: "Javascript",
+  description: "Complete all the Javascript challenges",
+  custom_fields: {
+    difficulty: :gold,
+    url: "https://achievement-images.teamtreehouse.com/ROR_LanguageConstructs.png"
    }
 )
 # Create application badges (uses https://github.com/norman/ambry)
