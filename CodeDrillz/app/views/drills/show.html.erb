@@ -6,12 +6,52 @@
       <%= drill.description %>
       <div>
         Your Answer:
-        <form id="answer">
+        <!-- <form id="answer">
           <input type="text_area" id="<%= dom_id(drill) %>-user-answer"></input>
           <input type="submit"></input>
-        </form>
+        </form> -->
+
+
+        <%= form_tag group_drill_path, method: :get do %>
+          <%= text_area_tag(:user_answer, @user_answer, class: "form-control") %>
+          <%= button_tag  name: nil, class: "btn btn-default", type: "submit", id: "user_answer" do %>
+           <!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
+          <% end %>
+        <% end %>
+
+        <div>
+
+          <% if @user_answer != "" %>
+            <% if @checked_answer == true %>
+              <% byebug %>
+              <div class="correct">
+                Correct!
+                <%= render "correct_answer" %>
+              </div>
+            <% end %>
+          <% end %>
+<!--
+
+          <%# else %>
+            <div class="incorrect">
+              Incorrect!
+            </div> -->
+        </div>
+
+
+        <div class="correct-answers">
+          Correct Answers:
+          <% drill.solutions.each do |solution| %>
+            <br>
+            <%= solution.correct_answer %>
+          <% end %>
+        </div>
+
+
       </div>
-      <div id ="<%= dom_id(drill) %>-correct-answer" style="display: none">
+
+      <!--
+      <div id ="<%#= dom_id(drill) %>-correct-answer" style="display: none">
         <div class="correct">
           Correct!
         </div>
@@ -20,12 +60,12 @@
         </div>
         <div class="correct-answers">
           Correct Answers:
-          <% drill.solutions.each do |solution| %>
+          <%# drill.solutions.each do |solution| %>
             <br>
-            <%= solution.correct_answer %>
-          <% end %>
+            <%#= solution.correct_answer %>
+          <%# end %>
         </div>
-      </div>
+      </div> -->
     <% end %>
   </p>
 </div>
