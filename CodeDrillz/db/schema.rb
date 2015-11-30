@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129192302) do
+ActiveRecord::Schema.define(version: 20151129235127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,12 +118,9 @@ ActiveRecord::Schema.define(version: 20151129192302) do
     t.text     "description"
     t.integer  "level"
     t.integer  "points"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -215,7 +212,6 @@ ActiveRecord::Schema.define(version: 20151129192302) do
   add_foreign_key "earned_badges", "users"
   add_foreign_key "group_badges", "badges"
   add_foreign_key "group_badges", "groups"
-  add_foreign_key "groups", "users"
   add_foreign_key "points", "users"
   add_foreign_key "solutions", "drills"
 end

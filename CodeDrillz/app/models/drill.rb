@@ -4,4 +4,9 @@ class Drill < ActiveRecord::Base
   accepts_nested_attributes_for :solutions, reject_if: :all_blank, allow_destroy: true
 
   validates :description, presence: true
+
+  def to_s
+    self.description
+  end
+
 end
