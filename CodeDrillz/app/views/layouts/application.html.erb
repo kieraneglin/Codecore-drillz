@@ -5,18 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
+
 </head>
 <body>
 
   <%= render "/layouts/nav" %>
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
 
         <%= yield %>
 
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
   </div>
 
 </body>
