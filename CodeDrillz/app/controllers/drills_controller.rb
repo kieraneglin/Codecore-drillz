@@ -26,6 +26,29 @@ class DrillsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find params[:group_id]
+    @drill.solutions.each do |solution|
+      if(solution.solution_type === 1 ){
+        if(user-answer === solution.correct_answer){
+          # undo the hide
+        end
+        }
+      }elsif(solution.solution_type === 2){
+        if(user-answer is similar to solution.correct_answer){
+          # undo the hide
+        end
+        }
+      }elsif(solution_type === 3){
+        if(user-answer passes Rspec test){
+          # undo the hide
+        end
+        }
+      }
+      end
+    end
+  end
+
   def edit
     @group = Group.find params[:group_id]
   end
@@ -33,7 +56,8 @@ class DrillsController < ApplicationController
   def update
     @drill.solutions.delete_all
     if @drill.update(drill_params)
-      redirect_to group_path(@drill.group), notice: 'Drill is updated!'
+      flash[:notice] = 'Drill is updated!'
+      redirect_to group_path(@drill.group)
     else
       render :edit
     end
@@ -41,7 +65,7 @@ class DrillsController < ApplicationController
 
   def destroy
     @drill.destroy
-    flash[:notice] = 'Category deleted successfully'
+    flash[:notice] = 'Drill deleted successfully'
     redirect_to group_path(@drill.group)
   end
 end
