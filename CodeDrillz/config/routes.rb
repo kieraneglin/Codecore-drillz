@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :drills
   end
   resources :categories
+  get "/users/profile" => "users#show", as: :profile
   resources :users
   # devise_for :users, controllers: {
           # sessions: 'users/sessions'
