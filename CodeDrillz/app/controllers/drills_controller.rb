@@ -28,6 +28,7 @@ class DrillsController < ApplicationController
 
   def show
     @group = Group.find params[:group_id]
+    @drill.solutions.second
     # @drill.solutions.each do |solution|
     #   if(solution.solution_type === 1 ){
     #     if(user-answer === solution.correct_answer){
