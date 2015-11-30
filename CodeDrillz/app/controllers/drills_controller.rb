@@ -27,26 +27,23 @@ class DrillsController < ApplicationController
   end
 
   def show
-    @group = Group.find params[:group_id]
-    # @drill.solutions.each do |solution|
-    #   if(solution.solution_type === 1 ){
-    #     if(user-answer === solution.correct_answer){
-    #       # undo the hide
-    #     end
-    #     }
-    #   }elsif(solution.solution_type === 2){
-    #     if(user-answer is similar to solution.correct_answer){
-    #       # undo the hide
-    #     end
-    #     }
-    #   }elsif(solution_type === 3){
-    #     if(user-answer passes Rspec test){
-    #       # undo the hide
-    #     end
-    #     }
-    #   }
-    #   end
-    # end
+      @group = Group.find params[:group_id]
+
+    # check user's answer and compare if it matches with the solution's correct answer
+    if(params[:user_answer])
+      solutions = Solution.find_by(correct_answer: params[:user_answer])
+      if solutions
+        # user answered correctly
+        current_user.add_points 10
+        @checked_answer = true
+        flash[:notice] = 'Answer Correct!'
+        redirect_to group_drill_path
+        # redirect_to group_drills_path(@group)
+        # byebug
+      else
+        flash[:notice] = 'Answer Incorrect!'
+      end
+    end
   end
 
   def edit
