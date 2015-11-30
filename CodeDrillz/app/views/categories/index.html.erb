@@ -32,7 +32,9 @@
     </tbody>
   </table>
 </div>
+<% if admin_user_signed_in? %>
+
 <div class="text-right">
   <span><%= link_to "Create a new category", new_category_path, class: "btn2 btn-success" %></span>
-
+<% end %>
 </div>
