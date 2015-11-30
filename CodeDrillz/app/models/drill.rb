@@ -6,4 +6,9 @@ class Drill < ActiveRecord::Base
   has_many :user, through: :user_drills
 
   validates :description, presence: true
+
+  def to_s
+    self.description
+  end
+
 end
