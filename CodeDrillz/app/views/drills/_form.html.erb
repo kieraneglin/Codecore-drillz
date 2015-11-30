@@ -1,4 +1,4 @@
-<%= @drill.errors.full_messages.join(", ") %>
+<%#= @drill.errors.full_messages.join(", ") %>
 
 <div class="form-horizontal">
   <%= form_for [@group, @drill] do |f|  %>
@@ -17,8 +17,8 @@
     </div>
   </div>
 
-  <!-- <div class="form-group text-right"> -->
-    <%#= f.submit "Save", class: "btn2 btn-success" %>
-  <!-- </div> -->
+  <div class="form-group text-right">
+    <%= f.submit "Save", class: "btn2 btn-success" %>
+  </div>
   <% end %>
 </div>
