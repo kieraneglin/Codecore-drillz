@@ -1,16 +1,24 @@
-<h3 class="text-center">Drills Group</h3>
-  <hr>
+<h2 class="text-center">Drillz Group</h2>
+<br>
 
-<div>
+<table class="table table-striped">
+  <tbody>
+
+
   <% @groups.each do |group| %>
-    <%= link_to group.name, group_path(group)%>
-    <%= link_to fa_icon("pencil-square-o"), edit_group_path(group), class: "icon-big" %>
-    <%= link_to fa_icon("trash-o"), group_path(group), method: :delete,
-              class: "icon-big", data: {confirm: "Are you sure ?"}%>
-  <hr>
+    <tr>
+      <td> <%= link_to group.name, group_path(group)%> </td>
+      <td style="text-align: right">
+        <%= link_to fa_icon("pencil-square-o"), edit_group_path(group), class: "icon-big" %>
+        <%= link_to fa_icon("trash-o"), group_path(group), method: :delete,
+                  class: "icon-big", data: {confirm: "Are you sure ?"}%>
+      </td>
+    </tr>
   <% end%>
-</div>
 
-<div class="">
+  </tbody>
+</table>
+
+<div class="text-right">
   <%= link_to "Create a new group", new_group_path, class: "btn2 btn-success" %>
 </div>
