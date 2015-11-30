@@ -1,8 +1,11 @@
-<h1>Your profile</h1>
-<h3>Points:</h3>
-<%= current_user.points %>
-<br>
-<h3>Badges</h3>
+<h2 class="text-center"> <%= current_user.first_name.capitalize %></h2>
+
+<h4 class="text-center">Points: <%= current_user.points %></h4>
+
+<h4 class="text-center">Badges</h4>
+
+<div class="text-center">
 <% current_user.badges.each do |b| %>
 <img src="<%=b.custom_fields[:url]  %>" width="50">
 <% end %>
+</div>

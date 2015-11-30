@@ -1,5 +1,4 @@
-<h2>Drill Group -
-  <%= @group.name%></h2>
+<h2>Drill Group - <%= @group.name%></h2>
 
 <p><%= @group.description%></p>
 
@@ -16,16 +15,24 @@
                                                   data: {confirm: "Are you sure ?"} %>
 </p>
 
-<div>
-  Drill:
-  <% @group.drills.each do |drill| %>
-  <p>
-    <%= drill.description %>
-    <%= link_to "Edit", edit_group_drill_path(@group, drill), class: "" %>
-    <%= link_to "delete", group_drill_path(@group, drill), class: "glyphicon glyphicon-trash",
-                method: :delete,
-                data: {confirm: "Are you sure?"} %>
-  </p>
+<table class="table table-striped">
+  <tbody>
+    <% @group.drills.each do |drill| %>
+    <tr>
+      <td>
+        <%= drill.description %>
+      </td>
+      <td style="text-align: right">
+        <%= link_to fa_icon("pencil-square-o"), edit_group_drill_path(@group, drill), class: "icon-big"  %>
+        <%= link_to fa_icon("trash-o"), group_drill_path(@group, drill),
+                    method: :delete, data: {confirm: "Are you sure?"}, class: "icon-big"  %>
+      </td>
+    </tr>
   <% end %>
-  <%= link_to "New", new_group_drill_path(@group), class:"" %>
+  </tbody>
+</table>
+
+
+<div class="text-right">
+  <%= link_to "Create a new Drill", new_group_drill_path(@group), class:"btn2 btn-success" %>
 </div>

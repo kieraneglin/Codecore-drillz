@@ -1,9 +1,12 @@
-<h2>Drill Group: <%= @group.name %></h2>
+<h2 class="text-center">Drill Group: <%= @group.name %></h2>
+
 <div>
-  <p>
-    Drill:
-    <% @group.drills.each do |drill|%>
-      <%= drill.description %>
+  <!-- <p> -->
+    <div class="">
+      <% @group.drills.each do |drill|%>
+        <h4><%= drill.description %></h4>
+    </div>
+
       <div>
         Your Answer:
         <!-- <form id="answer">
@@ -14,10 +17,12 @@
 
         <%= form_tag group_drill_path, method: :get do %>
           <%= text_area_tag(:user_answer, @user_answer, class: "form-control") %>
-          <%= button_tag  name: nil, class: "btn btn-default", type: "submit", id: "user_answer" do %>
-           <!-- <span class="glyphicon glyphicon-search" aria-hidden="true"></span> -->
+          <br>
+          <%= button_tag  name: nil, class: "btn2 btn-success", type: "submit", id: "user_answer" do %>
+           Submit
           <% end %>
         <% end %>
+          <br>
 
         <div>
 
@@ -67,5 +72,5 @@
         </div>
       </div> -->
     <% end %>
-  </p>
+  <!-- </p> -->
 </div>
