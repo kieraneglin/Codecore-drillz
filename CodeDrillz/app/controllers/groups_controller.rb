@@ -12,6 +12,8 @@ class GroupsController < ApplicationController
     # authenticate_user
     @categories = Category.all
     @group = Group.new
+
+		@badges = Merit::Badge.all
   end
 
   def create
