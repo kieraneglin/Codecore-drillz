@@ -44,7 +44,7 @@
       <div class="form-group">
       <%= f.label :categories%>
       <%#= f.collection_check_boxes :category_ids, Category.order(:title), :id, :title    %>
-      <%= f.collection_select(:category_ids, Category.all, :id, :title, {}, multiple: true, class: "form-control", id:"chosen-select", "data-placeholder" => "Add Categories") %>
+      <%= f.collection_select(:category_ids, Category.all, :id, :title, {}, multiple: "multiple", class: "form-control chosen-select", id:"chosen-select", "data-placeholder" => "Add Categories") %>
       </div>
       <div class="form-group">
         <%= f.submit "Save", class: "btn2 btn-success" %>
