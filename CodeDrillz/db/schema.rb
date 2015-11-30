@@ -118,12 +118,9 @@ ActiveRecord::Schema.define(version: 20151130003459) do
     t.text     "description"
     t.integer  "level"
     t.integer  "points"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -225,7 +222,6 @@ ActiveRecord::Schema.define(version: 20151130003459) do
   add_foreign_key "earned_badges", "users"
   add_foreign_key "group_badges", "badges"
   add_foreign_key "group_badges", "groups"
-  add_foreign_key "groups", "users"
   add_foreign_key "points", "users"
   add_foreign_key "solutions", "drills"
   add_foreign_key "user_drills", "drills"
